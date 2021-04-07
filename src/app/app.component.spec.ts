@@ -22,10 +22,10 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('angular11-quiz');
   });
 
-  it('should render title', () => {
+  it('should start with a welcome screen', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('angular11-quiz app is running!');
+    expect(compiled('h1').textContent).toContain('Welcome to the Angular Quiz App');
   });
 });
