@@ -28,4 +28,11 @@ describe('AppComponent', () => {
     const compiled = fixture.nativeElement;
     expect(compiled.querySelector('H1').textContent).toContain('Welcome to the Angular Quiz App');
   });
+
+  it('should have a "Start the Quiz" button on the welcome screen', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('.start-button').textContent).toContain('Start the Quiz');
+  });
 });
