@@ -1,5 +1,18 @@
-<h1>Welcome to the Angular Quiz App</h1>
 
+<div class="quiz-container">
 
-<button class="start-button">Start the Quiz</button>
+  <div [ngSwitch]="this.model.page">
+
+    <div *ngSwitchCase="0">
+      <h1>Welcome to the Angular Quiz App</h1>
+      <button       (click)='this.model.nextPage()'  class="start-button">Start the Quiz</button>
+    </div>
+
+    <div *ngSwitchDefault>
+      <p>Question 1: Which is the largest country in the world by population</p>
+    </div>
+  </div>
+
+</div>
+
 
