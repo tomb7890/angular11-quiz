@@ -26,6 +26,6 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled('h1').textContent).toContain('Welcome to the Angular Quiz App');
+    expect(compiled.querySelector('H1').textContent).toContain('Welcome to the Angular Quiz App');
   });
 });
