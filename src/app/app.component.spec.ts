@@ -35,4 +35,15 @@ describe('AppComponent', () => {
     const compiled = fixture.nativeElement;
     expect(compiled.querySelector('.start-button').textContent).toContain('Start the Quiz');
   });
+
+  it('should show the first page of the quiz when the button is clicked ', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement;
+    const btn = fixture.debugElement.nativeElement.querySelector('.start-button');
+    btn.click();
+    fixture.detectChanges();
+    expect(compiled.querySelector('.quiz-container').textContent).toContain('Which is the largest country in the world by population');
+  });
+
 });
