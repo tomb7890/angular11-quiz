@@ -53,5 +53,7 @@ export class AppComponent {
     return false;
   }
 
-
+  getScore(): number {
+    return this.model.score();
+  }
 }

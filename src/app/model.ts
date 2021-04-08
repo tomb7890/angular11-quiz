@@ -36,6 +36,17 @@ export class Model{
   }
 
 
+  score(): number {
+    let temp = 0;
+    let i = 0;
+    for (i = 0 ; i < this.items.length; i++ ) {
+      if ( this.items[i].answer === this.items[i].solution ){
+        temp = temp + 1;
+      }
+    }
+    return temp;
+  }
+
   nextPage(): void {
     this._page = this._page + 1;
   }
