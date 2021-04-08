@@ -1,26 +1,23 @@
-
 <div class="quiz-container">
 
-  <div [ngSwitch]="this.model.page">
+  <div *ngIf="isWelcomePage()">
+    <h1>Welcome to the Angular Quiz App</h1>
+    <button       (click)='this.model.nextPage()'  class="start-button">Start the Quiz</button>
+  </div>
 
-    <div *ngSwitchCase="0">
-      <h1>Welcome to the Angular Quiz App</h1>
-      <button       (click)='this.model.nextPage()'  class="start-button">Start the Quiz</button>
+  <div *ngIf="isQuestionPage() ">
+    <p>{{getCurrentItem().question}}</p>
+    <div *ngFor="let ch of getChoices()">
+      <label for=" label{{ch}}">
+        <input type="radio" name="optradio" value="{{ch}}" [(ngModel)]="getCurrentItem().answer" >  {{ch}}
+      </label>
     </div>
+    <button (click)='prevPage()'>PrevPage</button>
+    <button (click)='nextPage()'>NextPage</button>
+  </div>
 
-    <div *ngSwitchDefault>
-      <p>{{getCurrentItem().question}}</p>
-
-      <div *ngFor="let ch of getChoices()">
-        <label for=" label{{ch}}">
-          <input type="radio" name="optradio" value="{{ch}}" [(ngModel)]="getCurrentItem().answer" >  {{ch}}
-        </label>
-      </div>
-
-      <button (click)='prevPage()'>PrevPage</button>
-      <button (click)='nextPage()'>NextPage</button>
-
-    </div>
+  <div *ngIf="isResultsPage()">
+    <h4>Congratulations! You completed the test!</h4>
   </div>
 
 </div>

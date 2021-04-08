@@ -15,7 +15,7 @@ export class AppComponent {
   model = new Model();
 
   getCurrentItem(): QItem {
-    return this.model.items[this.model.page];
+    return this.model.items[this.model.page-1];
   }
 
   getChoices(): string[] {
@@ -29,5 +29,29 @@ export class AppComponent {
   nextPage(): void {
     this.model.nextPage();
   }
+
+  isWelcomePage() : boolean  {
+    if (this.model.page === 0) {
+      return true;
+    }
+    return false;
+  }
+
+  isQuestionPage(): boolean {
+    if (this.model.page > 0 && this.model.page <= this.model.items.length ){
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+
+  isResultsPage() : boolean  {
+    if (this.model.page === this.model.items.length + 1) {
+      return true;
+    }
+    return false;
+  }
+
 
 }
