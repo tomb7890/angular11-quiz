@@ -8,23 +8,26 @@ import { QItem } from './model';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
   title = 'angular11-quiz';
 
   model = new Model();
 
-  getChoices(): string[] {
-    return this.model.items[0].choices;
+  getCurrentItem(): QItem {
+    return this.model.items[this.model.page];
   }
 
-  getCurrentItem(): QItem {
-    return this.model.items[0];
+  getChoices(): string[] {
+    return this.getCurrentItem().choices;
   }
 
   prevPage(): void {
+    this.model.prevPage();
   }
 
   nextPage(): void {
+    this.model.nextPage();
   }
 
 }

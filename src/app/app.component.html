@@ -9,7 +9,7 @@
     </div>
 
     <div *ngSwitchDefault>
-      <p>Question 1: Which is the largest country in the world by population</p>
+      <p>{{getCurrentItem().question}}</p>
 
       <div *ngFor="let ch of getChoices()">
         <label for=" label{{ch}}">
