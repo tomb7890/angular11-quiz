@@ -1,26 +1,30 @@
-<div class="quiz-container">
+<div class="jumbotron quiz-container">
 
   <div *ngIf="isWelcomePage()">
     <h1>Welcome to the Angular Quiz App</h1>
-    <button       (click)='this.model.nextPage()'  class="start-button">Start the Quiz</button>
+    <button       (click)='this.model.nextPage()'  class="start-button btn btn-outline-primary">Start the Quiz</button>
   </div>
 
   <div *ngIf="isQuestionPage() ">
     <p>{{getCurrentItem().question}}</p>
     <div *ngFor="let ch of getChoices()">
-      <label for=" label{{ch}}">
-        <input type="radio" name="optradio" value="{{ch}}" [(ngModel)]="getCurrentItem().answer" >  {{ch}}
+      <div class="form-check m-1">
+      <label class="form-check-label radio m-1" for=" label{{ch}}">
+        <input type="radio" class="form-check-input" name="optradio" value="{{ch}}" [(ngModel)]="getCurrentItem().answer" >  {{ch}}
       </label>
+      </div>
+
     </div>
-    <button (click)='prevPage()'>PrevPage</button>
-    <button (click)='nextPage()'>NextPage</button>
+
+    <button class="btn btn-outline-secondary m-1"  (click)='prevPage()'>PrevPage</button>
+    <button class="btn btn-outline-primary m-1"  (click)='nextPage()'>NextPage</button>
   </div>
 
   <div *ngIf="isResultsPage()">
     <h4>Congratulations! You completed the test with {{ getScore() }} points.</h4>
 
     <p>Would you like to play again?</p>
-    <button  (click)='playAgain()'>Play Again</button>
+    <button class="btn btn-outline-primary m-1"  (click)='playAgain()'>Play Again</button>
   </div>
 
 </div>
