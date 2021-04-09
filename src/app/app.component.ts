@@ -56,4 +56,8 @@ export class AppComponent {
   getScore(): number {
     return this.model.score();
   }
+
+  playAgain() {
+    this.model.playAgain();
+  }
 }

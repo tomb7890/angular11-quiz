@@ -47,6 +47,10 @@ export class Model{
     return temp;
   }
 
+  playAgain() {
+    this._page = 1;
+  }
+
   nextPage(): void {
     this._page = this._page + 1;
   }

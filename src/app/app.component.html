@@ -18,6 +18,9 @@
 
   <div *ngIf="isResultsPage()">
     <h4>Congratulations! You completed the test with {{ getScore() }} points.</h4>
+
+    <p>Would you like to play again?</p>
+    <button  (click)='playAgain()'>Play Again</button>
   </div>
 
 </div>
