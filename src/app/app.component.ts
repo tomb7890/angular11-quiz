@@ -14,22 +14,6 @@ export class AppComponent {
 
   model = new Model();
 
-  getCurrentItem(): QItem {
-    return this.model.items[this.model.page-1];
-  }
-
-  getChoices(): string[] {
-    return this.getCurrentItem().choices;
-  }
-
-  prevPage(): void {
-    this.model.prevPage();
-  }
-
-  nextPage(): void {
-    this.model.nextPage();
-  }
-
   isWelcomePage() : boolean  {
     if (this.model.page === 0) {
       return true;
@@ -53,11 +37,4 @@ export class AppComponent {
     return false;
   }
 
-  getScore(): number {
-    return this.model.score();
-  }
-
-  playAgain() {
-    this.model.playAgain();
-  }
 }

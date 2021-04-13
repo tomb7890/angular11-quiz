@@ -1,0 +1,12 @@
+<p>{{getCurrentItem().question}}</p>
+<div *ngFor="let ch of getChoices()">
+  <div class="form-check m-1">
+    <label class="form-check-label radio m-1" for=" label{{ch}}">
+      <input type="radio" class="form-check-input" name="optradio" value="{{ch}}" [(ngModel)]="getCurrentItem().answer" >  {{ch}}
+    </label>
+  </div>
+
+</div>
+
+<button class="btn btn-outline-secondary m-1"  (click)='prevPage()'>PrevPage</button>
+<button class="btn btn-outline-primary m-1"  (click)='nextPage()'>NextPage</button>
