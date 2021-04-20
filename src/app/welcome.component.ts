@@ -1,11 +1,11 @@
 import { Component, Input } from '@angular/core';
-import { Model } from "./model";
-import { QItem } from "./model";
+import { Model } from './model';
+import { QItem } from './qitem.model';
 
 @Component({
   selector: 'welcome-page',
   templateUrl: './welcome.component.html',
-  styles: [""]}
+  styles: ['']}
           )
 
 export class WelcomeComponent  {

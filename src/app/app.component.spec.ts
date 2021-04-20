@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { QuestionComponent } from './question.component';
 import { WelcomeComponent } from './welcome.component';
 import { FinalComponent } from './final.component';
+import { QItemRepository} from './qitem.repository';
+import { StaticDataSource } from './static.datasource';
 
 
 describe('AppComponent', () => {
@@ -13,6 +15,7 @@ describe('AppComponent', () => {
       declarations: [
           AppComponent, QuestionComponent, WelcomeComponent, FinalComponent
       ],
+        providers: [QItemRepository, StaticDataSource]
     }).compileComponents();
   });
 

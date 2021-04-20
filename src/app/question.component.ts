@@ -1,6 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { Model } from "./model";
-import { QItem } from "./model";
+import { QItem } from "./qitem.model";
+
+import { QItemRepository } from "./qitem.repository";
 
 @Component({
   selector: 'question-page',
@@ -12,12 +14,17 @@ export class QuestionComponent  {
   @Input()  model: Model;
   name = 'QuestionComponent';
 
-  constructor() {
-    this.model = new Model();
+  constructor(private repository: QItemRepository) {
+      this.model = new Model();
+
+  }
+
+  get qitems() : QItem[] {
+    return this.repository.getQItems();
   }
 
   getCurrentItem(): QItem {
-    return this.model.items[this.model.page-1];
+    return this.qitems[this.model.page-1];
   }
 
   getChoices(): string[] {

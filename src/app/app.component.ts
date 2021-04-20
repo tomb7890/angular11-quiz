@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 
 import { Model } from './model';
-import { QItem } from './model';
+import { QItem } from './qitem.model';
+
+import { QItemRepository } from "./qitem.repository";
 
 @Component({
   selector: 'app-root',
@@ -12,7 +14,16 @@ import { QItem } from './model';
 export class AppComponent {
   title = 'angular11-quiz';
 
-  model = new Model();
+  model: Model;
+
+  constructor(private repository: QItemRepository) {
+    this.model = new Model();
+  }
+
+  get qitems() : QItem[] {
+    return this.repository.getQItems();
+  }
+
 
   isWelcomePage() : boolean  {
     if (this.model.page === 0) {
@@ -22,7 +33,7 @@ export class AppComponent {
   }
 
   isQuestionPage(): boolean {
-    if (this.model.page > 0 && this.model.page <= this.model.items.length ){
+    if (this.model.page > 0 && this.model.page <= this.qitems.length ){
       return true;
     }
     else {
@@ -31,7 +42,7 @@ export class AppComponent {
   }
 
   isResultsPage() : boolean  {
-    if (this.model.page === this.model.items.length + 1) {
+    if (this.model.page === this.qitems.length + 1) {
       return true;
     }
     return false;
