@@ -7,7 +7,7 @@ import { WelcomeComponent } from './welcome.component';
 import { FinalComponent } from './final.component';
 import { QItemRepository } from './qitem.repository';
 import { RestDataSource } from './rest.datasource';
-import { StaticDataSource } from './static.datasource';
+
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -16,9 +16,10 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent, WelcomeComponent, QuestionComponent, FinalComponent
   ],
   imports: [
-    HttpClientModule, BrowserModule, FormsModule
+    BrowserModule, FormsModule, HttpClientModule
   ],
-  providers: [QItemRepository, StaticDataSource],
+  providers: [QItemRepository, RestDataSource
+             ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

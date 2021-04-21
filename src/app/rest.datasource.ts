@@ -15,6 +15,6 @@ export class RestDataSource {
     this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/`;
   }
   getQItems(): Observable<QItem[]> {
-    return this.http.get<QItem[]>(this.baseUrl + 'qitems');
+    return this.http.get<QItem[]>(this.baseUrl + 'items');
   }
 }
